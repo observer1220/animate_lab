@@ -109,25 +109,6 @@ const Header: React.FC = () => {
     };
   }, [navigate]);
 
-  // 原本的邏輯
-  // const route = new Route();
-  // route.on("beforeRouteChange", async (from, to, next) => {
-  //   banner.stop();
-  //   await leave.startTransition();
-  //   next();
-  // });
-  // route.on("afterRouteChange", (from, to) => {
-  //   if (to === "index") {
-  //     banner.render();
-  //   }
-  //   scrollEffect.refresh();
-  //   leave.endTransition();
-  // });
-  // document.querySelectorAll("[data-href]").forEach((el) => {
-  //   const { href } = el.dataset;
-  //   el.addEventListener("click", route.to.bind(route, href));
-  // });
-
   return (
     <header className="o-header">
       <div data-href="/" className="o-header__logo">

@@ -1,37 +1,47 @@
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import "./CustomCursor.css";
 
-import Scale from "./ScaleEffect";
-import Color from "./ColorEffect";
-import LineEffect from "../click/Line";
-import PowEffect from "../click/Pow";
+const CustomCursor: React.FC = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [hovered, setHovered] = useState(false);
 
-const CursorComponent = () => {
-  const cursorElement = document.querySelector(".page-layout__cursor");
-  const cursor = new Scale(cursorElement as HTMLElement);
+  const handleMouseMove = (event: MouseEvent) => {
+    setPosition({ x: event.clientX, y: event.clientY });
+  };
+
+  const handleMouseOver = (event: MouseEvent) => {
+    if ((event.target as HTMLElement).tagName === "A") {
+      setHovered(true);
+    }
+  };
+
+  const handleMouseOut = (event: MouseEvent) => {
+    if ((event.target as HTMLElement).tagName === "A") {
+      setHovered(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseover", handleMouseOver);
+    window.addEventListener("mouseout", handleMouseOut);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseover", handleMouseOver);
+      window.removeEventListener("mouseout", handleMouseOut);
+    };
+  }, []);
+
   return (
-    <canvas
-      className="page-layout__cursor"
-      onClick={() => {
-        console.log("click", cursor);
-        cursor.addClickEffect(LineEffect);
+    <div
+      className={`custom-cursor ${hovered ? "hovered" : ""}`}
+      style={{
+        left: `${position.x}px`,
+        top: `${position.y}px`,
       }}
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-        <defs>
-          <filter id="gooey">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
-            <feColorMatrix
-              in="blur"
-              mode="matrix"
-              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 36 -7"
-              result="gooey"
-            />
-            <feBlend in="SourceGraphic" in2="gooey" />
-          </filter>
-        </defs>
-      </svg>
-    </canvas>
+    />
   );
 };
 
-export default CursorComponent;
+export default CustomCursor;

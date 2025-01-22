@@ -43,6 +43,7 @@ const useKeypress = ({ allowKeys }: KeypressProps) => {
   return { isActive: checkActive() };
 };
 
+/** 設備動態 */
 const KeypressComponent: React.FC<KeypressProps> = ({ allowKeys }) => {
   const { isActive } = useKeypress({ allowKeys });
 

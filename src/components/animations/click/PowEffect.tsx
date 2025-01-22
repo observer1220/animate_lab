@@ -31,6 +31,7 @@ interface PowOptions {
   colors?: string[];
 }
 
+/** 點擊動態 */
 const PowEffect: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const options: PowOptions = {

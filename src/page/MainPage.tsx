@@ -1,3 +1,5 @@
+import { Parallax, NoiseEffect } from "../components/animations/banner/";
+
 const MainPage = () => {
   return (
     <main>
@@ -18,6 +20,8 @@ const MainPage = () => {
             </div>
           </div>
         </div>
+
+        <NoiseEffect />
 
         <div className="m-section">
           <div className="m-section__title-en">

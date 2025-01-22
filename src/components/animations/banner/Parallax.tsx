@@ -25,6 +25,7 @@ class ParallaxPart {
   }
 }
 
+/** 主要動態 */
 const Parallax: React.FC = () => {
   const partsRef = useRef<ParallaxPart[]>([]);
   const position = useRef(new THREE.Vector2());
@@ -80,7 +81,34 @@ const Parallax: React.FC = () => {
     };
   }, []);
 
-  return null;
+  return (
+    <div className="m-banner" data-noise-strength="0.5" data-noise-speed="0.5">
+      <div>
+        <img
+          src="./src/assets/img/banner-1.png"
+          alt="b"
+          data-parallax
+          data-parallax-strength="25"
+        />
+      </div>
+      <div>
+        <img
+          src="./src/assets/img/banner-2.png"
+          alt="a"
+          data-parallax
+          data-parallax-strength="15"
+        />
+      </div>
+      <div>
+        <img
+          src="./src/assets/img/banner-3.png"
+          alt="c"
+          data-parallax
+          data-parallax-strength="-25"
+        />
+      </div>
+    </div>
+  );
 };
 
 export default Parallax;

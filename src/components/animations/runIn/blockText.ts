@@ -1,11 +1,7 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
 
-type BlockTextProps = {
-  textDelay?: number; // 延遲
-  textDuration?: number; // 持續時間
-};
-
+/** 進場動態 */
 const BlockText: React.FC = () => {
   useEffect(() => {
     const els = document.querySelectorAll<HTMLDivElement>("[data-text]");

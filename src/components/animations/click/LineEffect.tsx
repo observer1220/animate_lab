@@ -26,6 +26,7 @@ interface Circle {
   c: string;
 }
 
+/** 點擊動態 */
 const LineEffect: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const options: LineOptions = {
@@ -130,7 +131,7 @@ const LineEffect: React.FC = () => {
 
     const handleClick = (e: MouseEvent) => {
       createLines(e.clientX, e.clientY);
-      // createCircle(e.clientX, e.clientY);
+      createCircle(e.clientX, e.clientY);
     };
 
     canvas.addEventListener("click", handleClick);
