@@ -5,12 +5,14 @@
   -webkit-transition: none;
   transition: none;
 }
+
 @media (max-width: 1199.98px) {
   .-loading .m-button {
     -webkit-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
   }
 }
+
 .m-button {
   position: fixed;
   right: 40px;

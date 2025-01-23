@@ -21,10 +21,9 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const layoutRef = useRef<HTMLDivElement>(null);
+  const layout = layoutRef.current;
 
   useEffect(() => {
-    const layout = layoutRef.current;
-
     // 顏色設定
     const colors = ["#40587c", "#e2ae4a", "#5a7c40"];
     if (layout && layoutRef) {
@@ -36,17 +35,13 @@ const Layout = ({ children }: LayoutProps) => {
       layout.classList.add("-underline");
       // layout.classList.add('-block')
 
-      // 按鈕動態
-      layout.classList.add("-button-default");
-      // layout.classList.add('-button-elastic')
-
       // Program頁面動態
       // layout.classList.add("-program-colorful");
       layout.classList.add("-program-primary");
 
       // 過渡
       layout.classList.add("-rotate");
-      // layout.classList.add('-scale')
+      // layout.classList.add("-scale");
     }
 
     const innerHeight = mobileInnerHeight();
@@ -71,7 +66,7 @@ const Layout = ({ children }: LayoutProps) => {
         <Header />
         <LeftLine />
         <RightLine />
-        <BuyTickets />
+        <BuyTickets mode="default" />
         <main>
           {children}
           <Footer />

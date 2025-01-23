@@ -14,8 +14,6 @@ const TransitionLoader: React.FC<TransitionLoaderProps> = ({ mode }) => {
   const location = useLocation();
 
   useEffect(() => {
-    console.log(mode);
-
     // 啟動動畫
     setIsAnimating(true);
 

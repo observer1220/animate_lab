@@ -82,6 +82,7 @@
   -webkit-clip-path: url("#logo-clip");
   clip-path: url("#logo-clip");
 }
+
 .o-loading__logo-block span {
   width: 100%;
   height: 100%;

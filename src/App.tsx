@@ -12,11 +12,7 @@ import TransitionLoader from "./components/animations/K_leave/TransitionLoader";
 
 function App() {
   return (
-    <LoadingProgress
-      minTime={1000}
-      fakeProgress={80}
-      onLoadingDone={() => console.log("Loading complete")}
-    >
+    <LoadingProgress minTime={1000} fakeProgress={80}>
       <BrowserRouter basename="/music_festival/">
         <TransitionLoader mode="rect" />
         <AnimatePresence mode="wait">

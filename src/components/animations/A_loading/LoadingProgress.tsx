@@ -6,7 +6,6 @@ interface LoadingProps {
   children: React.ReactNode;
   minTime?: number;
   fakeProgress?: number;
-  onLoadingDone?: () => void;
 }
 
 interface LoadingContextType {
@@ -32,7 +31,6 @@ export const Loading: React.FC<LoadingProps> = ({
   children,
   minTime = 1000,
   fakeProgress = 80,
-  onLoadingDone,
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [progress, setProgress] = useState(0);
@@ -110,7 +108,6 @@ export const Loading: React.FC<LoadingProps> = ({
           },
           onComplete: () => {
             setIsLoading(false);
-            onLoadingDone?.();
             if (bodyLockRef.current) {
               document.body.classList.remove("-loading");
             }
@@ -128,7 +125,7 @@ export const Loading: React.FC<LoadingProps> = ({
       document.body.classList.remove("-loading");
       gsap.killTweensOf(animationState.current);
     };
-  }, [minTime, clampedFakeProgress, onLoadingDone]);
+  }, [minTime, clampedFakeProgress]);
 
   return (
     <LoadingContext.Provider value={{ addLoadingStack, removeLoadingStack }}>

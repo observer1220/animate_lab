@@ -2,11 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import "./Loading.css";
 
-interface LoadingLogoProps {
+interface LoadingProps {
   children: React.ReactNode;
   minTime?: number;
   fakeProgress?: number;
-  onLoadingDone?: () => void;
 }
 
 interface LoadingContextType {
@@ -24,11 +23,10 @@ export const useLoading = () => {
   return context;
 };
 
-export const LoadingLogo: React.FC<LoadingLogoProps> = ({
+export const LoadingLogo: React.FC<LoadingProps> = ({
   children,
   minTime = 1000,
   fakeProgress = 80,
-  onLoadingDone,
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const loadingStacksRef = useRef<Promise<any>[]>([]);
@@ -94,7 +92,6 @@ export const LoadingLogo: React.FC<LoadingLogoProps> = ({
             overwrite: true,
             onComplete: () => {
               setIsLoading(false);
-              onLoadingDone?.();
               if (bodyLockRef.current) {
                 document.body.classList.remove("-loading");
               }
@@ -115,13 +112,13 @@ export const LoadingLogo: React.FC<LoadingLogoProps> = ({
         gsap.killTweensOf(logoSpanRef.current);
       }
     };
-  }, [minTime, clampedFakeProgress, onLoadingDone]);
+  }, [minTime, clampedFakeProgress]);
 
   return (
     <LoadingContext.Provider value={{ addLoadingStack, removeLoadingStack }}>
-      <div ref={bodyLockRef} className="relative">
+      <div ref={bodyLockRef}>
         {isLoading && (
-          <div className="o-loading fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="o-loading">
             <svg
               width="133"
               height="78"
@@ -136,14 +133,8 @@ export const LoadingLogo: React.FC<LoadingLogoProps> = ({
                 />
               </clipPath>
             </svg>
-            <div
-              ref={logoBlockRef}
-              className="o-loading__logo-block overflow-hidden w-32 h-32"
-            >
-              <span
-                ref={logoSpanRef}
-                className="block w-full h-full bg-white"
-              />
+            <div ref={logoBlockRef} className="o-loading__logo-block">
+              <span ref={logoSpanRef} className="block" />
             </div>
           </div>
         )}
