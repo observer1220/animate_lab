@@ -168,7 +168,7 @@ const PowEffect: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      style={{ position: "fixed", top: 0, left: 0, zIndex: 9999 }}
+      style={{ position: "fixed", top: 0, left: 0, zIndex: 10 }}
     />
   );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./CustomCursor.css";
 
+/** 游標動態 */
 const CustomCursor: React.FC = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [hovered, setHovered] = useState(false);

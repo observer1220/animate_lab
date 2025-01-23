@@ -1,4 +1,4 @@
-import ScrollAnimation from "../components/animations/rolling/ScrollAnimation";
+import ScrollAnimation from "../components/animations/G_rolling/ScrollAnimation";
 
 const ProgramPage = () => {
   return (

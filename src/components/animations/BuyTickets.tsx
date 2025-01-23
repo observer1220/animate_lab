@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
+
 const BuyTickets = () => {
   return (
-    <a
-      href="https://bit.ly/webdesignref"
-      target="_blank"
+    <Link
+      to="https://bit.ly/webdesignref"
       rel="noopener noreferer nofollow"
       className="m-button"
     >
@@ -20,7 +21,7 @@ const BuyTickets = () => {
           <img src="./src/assets/img/lighting.svg" alt="lighting" />
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 

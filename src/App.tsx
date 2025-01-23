@@ -3,7 +3,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import MainPage from "./page/MainPage";
 import ProgramPage from "./page/ProgramPage";
-import { LoadingProgress, LoadingLogo } from "./components/animations/loading";
+import {
+  LoadingProgress,
+  LoadingLogo,
+} from "./components/animations/A_loading";
 
 function App() {
   return (

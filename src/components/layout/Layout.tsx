@@ -6,22 +6,21 @@ import LeftLine from "./LeftLine";
 import BuyTickets from "../animations/BuyTickets";
 
 // 動態模組
-import StrokeLine from "../animations/StrokeLine";
-import { BlockText, TypingText } from "../animations/runIn";
-import { PowEffect, LineEffect } from "../animations/click";
-import KeypressComponent from "../animations/keypress";
+import StrokeLine from "../animations/E_/StrokeLine";
+import { BlockText, TypingText } from "../animations/C_runIn";
+import { PowEffect, LineEffect } from "../animations/I_click";
+import KeypressComponent from "../animations/J_equipment/Keypress";
+import CustomCursor from "../animations/H_cursor/CursorComponent";
 
-import { WaveTransition } from "../animations/leave/wave";
-import { RectTransition } from "../animations/leave/rect";
+import { WaveTransition } from "../animations/K_leave/wave";
+import { RectTransition } from "../animations/K_leave/rect";
 import mobileInnerHeight from "../../utils/mobileInnerHeight";
-import CustomCursor from "../animations/cursor/CursorComponent";
 
 interface LayoutProps {
   children: ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const [isLoading, setIsLoading] = useState(true);
   const layoutRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -43,8 +42,8 @@ const Layout = ({ children }: LayoutProps) => {
       // layout.classList.add('-button-elastic')
 
       // Program頁面動態
-      layout.classList.add("-program-colorful");
-      // layout.classList.add("-program-primary");
+      // layout.classList.add("-program-colorful");
+      layout.classList.add("-program-primary");
 
       // 過渡
       layout.classList.add("-rotate");
@@ -87,7 +86,6 @@ const Layout = ({ children }: LayoutProps) => {
       {/* 離場動態 */}
       {/* <RectTransition></RectTransition> */}
       {/* <WaveTransition></WaveTransition> */}
-      {/* 游標動態 */}
     </div>
   );
 };

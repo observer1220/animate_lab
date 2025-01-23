@@ -1,4 +1,4 @@
-import { Parallax, NoiseEffect } from "../components/animations/banner/";
+import { Parallax, NoiseEffect } from "../components/animations/D_banner";
 
 const MainPage = () => {
   return (

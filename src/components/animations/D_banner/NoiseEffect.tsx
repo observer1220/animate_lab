@@ -14,8 +14,8 @@ interface NoiseProps {
 
 /** 主要動態 */
 const NoiseEffect: React.FC<NoiseProps> = ({
-  noiseStrength = 1,
-  noiseSpeed = 1,
+  noiseStrength = 0.5,
+  noiseSpeed = 0.5,
   backgroundImage = "https://i.imgur.com/r92HRnX.png",
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
