@@ -1,3 +1,5 @@
+import "./Line.css";
+
 const LeftLine = () => {
   return (
     <div className="page-layout__line -left">

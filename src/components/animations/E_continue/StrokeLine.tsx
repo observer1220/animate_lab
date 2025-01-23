@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import "./StrokeLine.css";
 
 interface StrokeLineProps {
   children: React.ReactNode;

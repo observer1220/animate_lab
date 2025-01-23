@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
+import "./Parallax.css";
 
 interface ParallaxPartOptions {
   strength: number;

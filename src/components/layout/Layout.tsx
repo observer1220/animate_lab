@@ -4,16 +4,15 @@ import Footer from "./Footer";
 import RightLine from "./RightLine";
 import LeftLine from "./LeftLine";
 import BuyTickets from "../animations/BuyTickets";
+import "./Layout.css";
 
 // 動態模組
-import StrokeLine from "../animations/E_/StrokeLine";
+import StrokeLine from "../animations/E_continue/StrokeLine";
 import { BlockText, TypingText } from "../animations/C_runIn";
 import { PowEffect, LineEffect } from "../animations/I_click";
 import KeypressComponent from "../animations/J_equipment/Keypress";
 import CustomCursor from "../animations/H_cursor/CursorComponent";
 
-import { WaveTransition } from "../animations/K_leave/wave";
-import { RectTransition } from "../animations/K_leave/rect";
 import mobileInnerHeight from "../../utils/mobileInnerHeight";
 
 interface LayoutProps {
@@ -82,10 +81,6 @@ const Layout = ({ children }: LayoutProps) => {
       <PowEffect />
       <CustomCursor />
       <KeypressComponent allowKeys={["b", "s"]} />
-
-      {/* 離場動態 */}
-      {/* <RectTransition></RectTransition> */}
-      {/* <WaveTransition></WaveTransition> */}
     </div>
   );
 };

@@ -1,0 +1,29 @@
+.text-block {
+  position: relative;
+  display: block;
+}
+.text-block::before,
+.text-block::after {
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.text-block::before {
+  background-color: #fff;
+  -webkit-transform-origin: right;
+  transform-origin: right;
+  -webkit-transform: scaleX(var(--progress-back));
+  transform: scaleX(var(--progress-back));
+}
+.text-block::after {
+  background-color: #40587c;
+  -webkit-transform-origin: var(--transform-origin);
+  transform-origin: var(--transform-origin);
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform: scaleX(var(--progress));
+  transform: scaleX(var(--progress));
+}

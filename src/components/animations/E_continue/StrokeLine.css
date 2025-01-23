@@ -1,0 +1,21 @@
+.stroke-line {
+  -webkit-animation: dash 1s linear infinite;
+  animation: dash 1s linear infinite;
+}
+
+@-webkit-keyframes dash {
+  from {
+    stroke-dashoffset: var(--svg-dashoffset-from);
+  }
+  to {
+    stroke-dashoffset: var(--svg-dashoffset-to);
+  }
+}
+@keyframes dash {
+  from {
+    stroke-dashoffset: var(--svg-dashoffset-from);
+  }
+  to {
+    stroke-dashoffset: var(--svg-dashoffset-to);
+  }
+}

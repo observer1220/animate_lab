@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import "./Header.css";
 
 // 模擬 Route 類別和相關方法
 class Route {
@@ -117,19 +118,19 @@ const Header: React.FC = () => {
       <nav className="o-header__nav">
         <ul className="o-header__nav-list">
           <li>
-            <Link to="/" rel="noopener noreferrer nofollow">
+            <a href="/" rel="noopener noreferrer nofollow">
               Location
-            </Link>
+            </a>
           </li>
           <li>
-            <Link to="/program" rel="noopener noreferrer nofollow">
+            <a href="program" rel="noopener noreferrer nofollow">
               Program
-            </Link>
+            </a>
           </li>
           <li>
-            <Link to="/" rel="noopener noreferrer nofollow">
+            <a href="/" rel="noopener noreferrer nofollow">
               About
-            </Link>
+            </a>
           </li>
         </ul>
       </nav>

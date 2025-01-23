@@ -1,0 +1,39 @@
+.text-cursor {
+  opacity: 0;
+}
+.text-cursor.-first {
+  -webkit-animation: flashing 0.5s infinite steps(1, start);
+  animation: flashing 0.5s infinite steps(1, start);
+}
+.text-cursor.-start {
+  opacity: 1;
+  -webkit-animation: none;
+  animation: none;
+}
+.text-cursor.-end {
+  opacity: 0;
+}
+
+@-webkit-keyframes flashing {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes flashing {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

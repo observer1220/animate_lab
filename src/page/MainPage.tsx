@@ -1,4 +1,5 @@
-import { Parallax, NoiseEffect } from "../components/animations/D_banner";
+import { Parallax, NoiseEffect } from "../components/animations/D_banner/";
+import "./MainPage.css";
 
 const MainPage = () => {
   return (
@@ -21,7 +22,7 @@ const MainPage = () => {
           </div>
         </div>
 
-        <NoiseEffect />
+        <Parallax />
 
         <div className="m-section">
           <div className="m-section__title-en">
@@ -50,29 +51,6 @@ const MainPage = () => {
               really deep. Music, like any art, is subjective!
             </span>
           </div>
-        </div>
-      </div>
-      <div className="page-layout__route-transition">
-        <svg
-          viewBox="0 0 300 300"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-        >
-          <path
-            id="wave"
-            fill="#40587c"
-            d="M35 302.997C76.5 292.764 122 320.497 163.5 315.497C183.5 313.088 207 302.997 300 320.497V328.886C300 332.847 297.851 336.058 295.2 336.058H4.8C2.149 336.058 0 332.847 0 328.886V315.497C12 308.997 17 307.435 35 302.997Z"
-          ></path>
-        </svg>
-        <svg
-          viewBox="0 0 300 300"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-        >
-          <path id="rect" fill="#40587C" d="M0 300h300v-0H0z" />
-        </svg>
-        <div className="page-layout__route-transition-loading">
-          <img src="./src/assets/img/loading.svg" alt="loading" />
         </div>
       </div>
     </main>

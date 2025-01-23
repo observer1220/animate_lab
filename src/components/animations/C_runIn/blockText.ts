@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
+import "./BlockText.css";
 
 /** 進場動態 */
 const BlockText: React.FC = () => {

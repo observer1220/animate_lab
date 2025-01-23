@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import "./Loading.css";
 
 interface LoadingProps {
   children: React.ReactNode;
@@ -131,22 +132,20 @@ export const Loading: React.FC<LoadingProps> = ({
 
   return (
     <LoadingContext.Provider value={{ addLoadingStack, removeLoadingStack }}>
-      <div ref={bodyLockRef} className="relative">
+      <div ref={bodyLockRef}>
         {isLoading && (
-          <div className="o-loading fixed inset-0 z-50 flex flex-col items-center justify-center bg-black bg-opacity-50">
-            <div className="o-loading__progress w-64 h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div className="o-loading">
+            <div className="o-loading__progress">
               <span
                 ref={progressRef}
-                className="block h-full bg-white transition-transform duration-300"
+                className="block"
                 style={{
                   transform: `scaleX(${progress / 100})`,
                   transformOrigin: "left",
                 }}
               />
             </div>
-            <p ref={progressTextRef} className="mt-2 text-white text-sm">
-              0%
-            </p>
+            <p ref={progressTextRef}>0%</p>
           </div>
         )}
         {children}

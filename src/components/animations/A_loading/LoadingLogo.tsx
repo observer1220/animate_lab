@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import "./Loading.css";
 
 interface LoadingLogoProps {
   children: React.ReactNode;

@@ -7,6 +7,8 @@ import {
   LoadingProgress,
   LoadingLogo,
 } from "./components/animations/A_loading";
+import { AnimatePresence } from "framer-motion";
+import TransitionLoader from "./components/animations/K_leave/TransitionLoader";
 
 function App() {
   return (
@@ -15,13 +17,16 @@ function App() {
       fakeProgress={80}
       onLoadingDone={() => console.log("Loading complete")}
     >
-      <BrowserRouter basename="/music_festival">
-        <Layout>
-          <Routes>
-            <Route path="/" element={<MainPage />} />
-            <Route path="/program" element={<ProgramPage />} />
-          </Routes>
-        </Layout>
+      <BrowserRouter basename="/music_festival/">
+        <TransitionLoader mode="rect" />
+        <AnimatePresence mode="wait">
+          <Layout>
+            <Routes>
+              <Route path="/" element={<MainPage />} />
+              <Route path="/program" element={<ProgramPage />} />
+            </Routes>
+          </Layout>
+        </AnimatePresence>
       </BrowserRouter>
     </LoadingProgress>
   );

@@ -1,0 +1,118 @@
+.-loading .o-loading {
+  opacity: 1;
+  -webkit-transition: none;
+  transition: none;
+}
+.-loading .o-loading__main {
+  opacity: 1;
+}
+.o-loading {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-items: center;
+  place-items: center;
+  background-color: #40587c;
+  opacity: 0;
+  z-index: 99;
+  -webkit-transition: opacity 0.6s 0.5s;
+  transition: opacity 0.6s 0.5s;
+  pointer-events: none;
+}
+.o-loading__main {
+  display: none;
+  opacity: 0;
+  -webkit-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+  color: #fff;
+}
+.o-loading__main > P {
+  -webkit-animation: flashing 0.25s infinite steps(1, start);
+  animation: flashing 0.25s infinite steps(1, start);
+}
+.o-loading__main svg {
+  position: absolute;
+  opacity: 0;
+}
+.o-loading__progress {
+  width: 275px;
+  height: 25px;
+  position: relative;
+  padding: 3.5px 10px 0;
+  margin-top: 5px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+.o-loading__progress > span {
+  width: 108%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #e2ae4a;
+  -webkit-transform-origin: left;
+  transform-origin: left;
+  -webkit-transform: skewX(-45deg) translate(-10px, 0) scaleX(0);
+  transform: skewX(-45deg) translate(-10px, 0) scaleX(0);
+  -webkit-transform: skewX(-45deg) translate(-10px, 0) scaleX(var(--progress));
+  transform: skewX(-45deg) translate(-10px, 0) scaleX(var(--progress));
+  z-index: -1;
+}
+.o-loading__logo-block {
+  width: 140px;
+  height: 80px;
+  position: relative;
+  -webkit-clip-path: url("#logo-clip");
+  clip-path: url("#logo-clip");
+}
+.o-loading__logo-block span {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+}
+
+@-webkit-keyframes flashing {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes flashing {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
