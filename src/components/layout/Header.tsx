@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import "./Header.css";
 
 interface HeaderProps {
-  mode?: "underline" | "block";
+  mode: "underline" | "block";
 }
 
 // React Header 元件 + 回饋動態
-const Header = ({ mode = "underline" }: HeaderProps) => {
+const Header = ({ mode }: HeaderProps) => {
   const [className, setClassName] = useState(`-${mode}`);
   const layoutRef = useRef<HTMLDivElement>(null);
 

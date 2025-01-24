@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import "./BuyTickets.css";
 
 interface BuyTicketsProps {
-  mode?: "default" | "elastic";
+  mode: "default" | "elastic";
 }
 
 /** 按鈕動態 */
-const BuyTickets = ({ mode = "default" }: BuyTicketsProps) => {
-  const [className, setClassName] = useState("-button-default");
+const BuyTickets = ({ mode }: BuyTicketsProps) => {
+  const [className, setClassName] = useState(`-button-${mode}`);
   const layoutRef = useRef<HTMLDivElement>(null);
 
   const handleToggleClass = () => {

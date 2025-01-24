@@ -1,34 +1,19 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import "./Parallax.css";
+import parallaxList from "../../../data/parallax";
 
-interface ParallaxPartOptions {
-  strength: number;
-}
+const updateParallax = (
+  el: HTMLElement,
+  strength: number,
+  x: number,
+  y: number
+) => {
+  el.style.transform = `translate3d(${-x * strength}px, ${-y * strength}px, 0)`;
+};
 
-class ParallaxPart {
-  private el: HTMLElement;
-  private options: ParallaxPartOptions;
-
-  constructor(el: HTMLElement, options: Partial<ParallaxPartOptions> = {}) {
-    this.el = el;
-    this.options = {
-      strength: parseFloat(el.dataset.parallaxStrength || "10"),
-      ...options,
-    };
-  }
-
-  update(x: number, y: number) {
-    const { strength } = this.options;
-    this.el.style.transform = `translate3d(${-x * strength}px, ${
-      -y * strength
-    }px, 0)`;
-  }
-}
-
-/** 主要動態 */
 const Parallax: React.FC = () => {
-  const partsRef = useRef<ParallaxPart[]>([]);
+  const partsRef = useRef<HTMLElement[]>([]);
   const position = useRef(new THREE.Vector2());
   const lerpMouse = useRef(new THREE.Vector2());
   const reqID = useRef<number | null>(null);
@@ -55,8 +40,9 @@ const Parallax: React.FC = () => {
     reqID.current = window.requestAnimationFrame(render);
     lerpMouse.current.lerp(position.current, 0.1);
 
-    partsRef.current.forEach((part) => {
-      part.update(lerpMouse.current.x, lerpMouse.current.y);
+    partsRef.current.forEach((el) => {
+      const strength = parseFloat(el.dataset.parallaxStrength || "10");
+      updateParallax(el, strength, lerpMouse.current.x, lerpMouse.current.y);
     });
   };
 
@@ -65,7 +51,7 @@ const Parallax: React.FC = () => {
 
     elements.forEach((el) => {
       el.style.display = "block";
-      partsRef.current.push(new ParallaxPart(el));
+      partsRef.current.push(el);
     });
 
     window.addEventListener("mousemove", move);
@@ -84,30 +70,17 @@ const Parallax: React.FC = () => {
 
   return (
     <div className="m-banner" data-noise-strength="0.5" data-noise-speed="0.5">
-      <div>
-        <img
-          src="./src/assets/img/banner-1.png"
-          alt="b"
-          data-parallax
-          data-parallax-strength="25"
-        />
-      </div>
-      <div>
-        <img
-          src="./src/assets/img/banner-2.png"
-          alt="a"
-          data-parallax
-          data-parallax-strength="15"
-        />
-      </div>
-      <div>
-        <img
-          src="./src/assets/img/banner-3.png"
-          alt="c"
-          data-parallax
-          data-parallax-strength="-25"
-        />
-      </div>
+      {parallaxList.map((item) => (
+        <div key={item.alt}>
+          <img
+            key={item.alt}
+            src={item.src}
+            alt={item.alt}
+            data-parallax
+            data-parallax-strength={item.strength}
+          />
+        </div>
+      ))}
     </div>
   );
 };

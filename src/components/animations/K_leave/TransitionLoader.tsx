@@ -18,7 +18,7 @@ const TransitionLoader: React.FC<TransitionLoaderProps> = ({ mode }) => {
     setIsAnimating(true);
 
     // 模擬動畫結束 (設定延遲，與動畫時間一致)
-    const timeout = setTimeout(() => setIsAnimating(false), 2000);
+    const timeout = setTimeout(() => setIsAnimating(false), 1000);
 
     return () => clearTimeout(timeout);
   }, [location]);

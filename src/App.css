@@ -50,6 +50,7 @@ body {
   color: #40587c;
   overscroll-behavior: none; /* 結合 -ms-scroll-chaining */
   scroll-behavior: smooth;
+  cursor: none;
 }
 
 /* 響應式調整 */
