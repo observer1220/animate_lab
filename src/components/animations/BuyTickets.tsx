@@ -1,6 +1,6 @@
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./BuyTickets.css";
-import { useEffect, useRef, useState } from "react";
 
 interface BuyTicketsProps {
   mode?: "default" | "elastic";
@@ -14,9 +14,11 @@ const BuyTickets = ({ mode = "default" }: BuyTicketsProps) => {
   const handleToggleClass = () => {
     setClassName(`-button-${mode}`);
   };
+
   useEffect(() => {
     handleToggleClass();
   }, []);
+
   return (
     <div ref={layoutRef} className={className}>
       <Link

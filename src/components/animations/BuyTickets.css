@@ -51,18 +51,21 @@
   pointer-events: none;
   color: var(--color-1);
 }
+
 .-button-default .m-button__main {
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
 }
+
 .m-button__main > svg {
   fill: currentColor;
   -webkit-animation: rotate 10s infinite linear;
   animation: rotate 10s infinite linear;
   pointer-events: none;
 }
+
 .m-button__content {
   font-weight: 900;
   font-size: 24px;

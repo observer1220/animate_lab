@@ -1,5 +1,5 @@
-import { Parallax, NoiseEffect } from "../components/animations/D_banner/";
 import "./MainPage.css";
+import BannerComponent from "../components/animations/D_banner/BannerComponent";
 
 const MainPage = () => {
   return (
@@ -22,7 +22,7 @@ const MainPage = () => {
           </div>
         </div>
 
-        <Parallax />
+        <BannerComponent mode="noise" />
 
         <div className="m-section">
           <div className="m-section__title-en">

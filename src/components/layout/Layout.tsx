@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, ReactNode } from "react";
+import { ReactNode } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import RightLine from "./RightLine";
@@ -8,62 +8,20 @@ import "./Layout.css";
 
 // 動態模組
 import StrokeLine from "../animations/E_continue/StrokeLine";
-import { BlockText, TypingText } from "../animations/C_runIn";
-import { PowEffect, LineEffect } from "../animations/I_click";
+import RunInEffect from "../animations/C_runIn/RunInEffect";
+import ClickEffect from "../animations/I_click/ClickEffect";
 import KeypressComponent from "../animations/J_equipment/Keypress";
 import CustomCursor from "../animations/H_cursor/CursorComponent";
-
-import mobileInnerHeight from "../../utils/mobileInnerHeight";
 
 interface LayoutProps {
   children: ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const layoutRef = useRef<HTMLDivElement>(null);
-  const layout = layoutRef.current;
-
-  useEffect(() => {
-    // 顏色設定
-    const colors = ["#40587c", "#e2ae4a", "#5a7c40"];
-    if (layout && layoutRef) {
-      colors.forEach((color, i) => {
-        layout.style.setProperty(`--color-${i + 1}`, color);
-      });
-
-      // 回饋動態
-      layout.classList.add("-underline");
-      // layout.classList.add('-block')
-
-      // Program頁面動態
-      // layout.classList.add("-program-colorful");
-      layout.classList.add("-program-primary");
-
-      // 過渡
-      layout.classList.add("-rotate");
-      // layout.classList.add("-scale");
-    }
-
-    const innerHeight = mobileInnerHeight();
-    const mainElement = document.querySelector(".page-layout main");
-    if (mainElement) {
-      (mainElement as HTMLElement).style.setProperty(
-        "--vh",
-        `${window.innerHeight / innerHeight(false)}vh`
-      );
-    }
-    window.addEventListener("resize", () => {
-      (mainElement as HTMLElement).style.setProperty(
-        "--vh",
-        `${window.innerHeight / innerHeight(true)}vh`
-      );
-    });
-  }, []);
-
   return (
-    <div className="page-layout" ref={layoutRef}>
+    <div className="page-layout">
       <StrokeLine>
-        <Header />
+        <Header mode="block" />
         <LeftLine />
         <RightLine />
         <BuyTickets mode="default" />
@@ -72,8 +30,8 @@ const Layout = ({ children }: LayoutProps) => {
           <Footer />
         </main>
       </StrokeLine>
-      <BlockText />
-      <PowEffect />
+      <RunInEffect mode="blockText" />
+      <ClickEffect mode="pow" />
       <CustomCursor />
       <KeypressComponent allowKeys={["b", "s"]} />
     </div>

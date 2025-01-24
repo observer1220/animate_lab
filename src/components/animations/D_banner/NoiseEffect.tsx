@@ -80,7 +80,7 @@ class WebGLSketch {
     this.clock = new THREE.Clock();
     this.loaderManager = new THREE.LoadingManager();
 
-    this.loaderManager.onProgress = (url, itemsLoaded, itemsTotal) => {
+    this.loaderManager.onProgress = (_, itemsLoaded, itemsTotal) => {
       this.loadStatus.total = itemsTotal;
       this.loadStatus.progress = itemsLoaded / this.loadStatus.total;
     };
@@ -284,7 +284,7 @@ class WebGLSketch {
     planeSketch.scale.set(width, height, 1);
     this.scene.add(planeSketch);
 
-    this.reqRenders.push((d, t) => {
+    this.reqRenders.push((t) => {
       uniforms.uTime.value = t;
     });
 
