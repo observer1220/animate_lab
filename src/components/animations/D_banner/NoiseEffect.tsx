@@ -284,7 +284,7 @@ class WebGLSketch {
     planeSketch.scale.set(width, height, 1);
     this.scene.add(planeSketch);
 
-    this.reqRenders.push((t) => {
+    this.reqRenders.push((_, t) => {
       uniforms.uTime.value = t;
     });
 
