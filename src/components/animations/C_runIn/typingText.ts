@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
-import "./typingText.css";
+import "./TypingText.css";
 
 /** 進場動態 */
 const TypingText: React.FC = () => {
