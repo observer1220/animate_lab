@@ -31,7 +31,7 @@ function App() {
   }, []);
   return (
     <LoadingEffect mode="progress">
-      <BrowserRouter basename="/music_festival/">
+      <BrowserRouter basename="/block_design_react/">
         <TransitionLoader mode="rect" />
         <AnimatePresence mode="wait">
           <Layout>
