@@ -7,7 +7,7 @@ import MainPage from "./page/MainPage";
 import ProgramPage from "./page/ProgramPage";
 import LoadingEffect from "./components/animations/A_loading/LoadingEffect";
 import { AnimatePresence } from "framer-motion";
-import TransitionLoader from "./components/animations/K_leave/TransitionLoader";
+// import TransitionLoader from "./components/animations/K_leave/TransitionLoader";
 
 function App() {
   useEffect(() => {
@@ -30,19 +30,20 @@ function App() {
     return () => window.removeEventListener("resize", resizeHandler);
   }, []);
   return (
-    <LoadingEffect mode="progress">
-      <BrowserRouter basename="/block_design_react/">
-        <TransitionLoader mode="rect" />
-        <AnimatePresence mode="wait">
-          <Layout>
+    <BrowserRouter basename="/block_design_react/">
+      {/* <TransitionLoader mode="rect" /> */}
+
+      <AnimatePresence mode="wait">
+        <Layout>
+          <LoadingEffect mode="progress">
             <Routes>
               <Route path="/" element={<MainPage />} />
               <Route path="/program" element={<ProgramPage mode="primary" />} />
             </Routes>
-          </Layout>
-        </AnimatePresence>
-      </BrowserRouter>
-    </LoadingEffect>
+          </LoadingEffect>
+        </Layout>
+      </AnimatePresence>
+    </BrowserRouter>
   );
 }
 

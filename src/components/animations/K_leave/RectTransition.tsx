@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import loadingSVG from "../../../assets/img/loading.svg";
 
 interface RectProps {
   onTransitionStart?: () => void;
@@ -118,7 +119,7 @@ const WaveTransition: React.FC<RectProps> = ({
         <path id="rect" fill="#40587C" d="M0 300h300v-0H0z" />
       </svg>
       <div className="page-layout__route-transition-loading">
-        <img src="./src/assets/img/loading.svg" alt="loading" />
+        <img src={loadingSVG} alt="loading" />
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+import logoSVG from "../../assets/img/logo.svg";
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 interface HeaderProps {
   mode: "underline" | "block";
@@ -27,25 +29,25 @@ const Header = ({ mode }: HeaderProps) => {
   return (
     <div className={className} ref={layoutRef}>
       <header className="o-header">
-        <a href="/" className="o-header__logo">
-          <img src="./src/assets/img/logo.svg" alt="logo" />
-        </a>
+        <Link to="/" className="o-header__logo">
+          <img src={logoSVG} alt="logo" />
+        </Link>
         <nav className="o-header__nav">
           <ul className="o-header__nav-list">
             <li>
-              <a href="/" rel="noopener noreferrer nofollow">
+              <Link to="/" rel="noopener noreferrer nofollow">
                 Location
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="program" rel="noopener noreferrer nofollow">
+              <Link to="program" rel="noopener noreferrer nofollow">
                 Program
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/" rel="noopener noreferrer nofollow">
+              <Link to="/" rel="noopener noreferrer nofollow">
                 About
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

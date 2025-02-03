@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./BuyTickets.css";
+import lightingSVG from "../../assets/img/lighting.svg";
 
 interface BuyTicketsProps {
   mode: "default" | "elastic";
@@ -37,7 +38,7 @@ const BuyTickets = ({ mode }: BuyTicketsProps) => {
           </svg>
           <div className="m-button__content">
             <p>購 &nbsp;票</p>
-            <img src="./src/assets/img/lighting.svg" alt="lighting" />
+            <img src={lightingSVG} alt="lighting" />
           </div>
         </div>
       </Link>
